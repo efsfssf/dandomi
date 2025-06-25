@@ -1,7 +1,7 @@
 ---
 layout: project
 title: Winscribe H4CK Console
-image: 'https://imgur.com/Zktvt5H'
+image: 'https://i.imgur.com/Zktvt5H.png'
 tags:
   - hack
   - server
