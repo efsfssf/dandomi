@@ -1,14 +1,13 @@
 ---
 layout: project
-title: Amazing Theme
-image: 'https://picsum.photos/800/400'
+title: Winscribe H4CK Console
+image: 'https://imgur.com/Zktvt5H'
 tags:
-  - tailwindcss
-  - html
+  - hack
+  - server
 ---
-Mauris eget varius turpis. Integer sit amet sollicitudin velit. Aenean ac lacus in eros cursus iaculis et id tellus. Pellentesque eu ante id mi eleifend sollicitudin nec at leo. Donec congue enim id massa vulputate, et posuere purus vehicula. Nunc euismod quam in tincidunt malesuada.
+Windscribe H4CK Console — это графическое приложение, написанное на Python, которое предоставляет пользователю возможность получить бессрочную лицензию для сервиса Windscribe путем манипуляции сетевыми запросами. Проект использует локальный прокси-сервер (mitmproxy) для перехвата и подмены данных, необходимых для активации аккаунта в Windscribe.
 
-You can find it on Github:
-
-- <https://github.com>
+Основная цель проекта:
+Создание инструмента, который позволяет обойти ограничения платной подписки в Windscribe, предоставляя пользователям возможность использовать сервис бесплатно. При этом проект был разработан исключительно с целью исследования и демонстрации возможностей манипуляции сетевым трафиком, а не для коммерческого использования или злонамеренных целей.
 
