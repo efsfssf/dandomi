@@ -1,6 +1,6 @@
 ---
 layout: project
-title: Awesome Theme
+title: deBUFF 2.0
 image: 'https://sun9-7.userapi.com/s/v1/if2/TQ4VnnaDj8mjx-Jt4zX7LT0cScol_K-CZ9xx07pcngbUSn3HFmggvRRU5NZXAunvU2pJzilsScB_3tXGRcO3bvyX.jpg?quality=96&as=32x20,48x30,72x45,108x67,160x100,240x150,360x224,480x299,540x336,640x399,720x449,1080x673,1280x798,1440x897,1491x929&from=bu&cs=1491x0'
 category: hack
 tags:
