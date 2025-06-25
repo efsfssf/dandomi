@@ -6,7 +6,7 @@ description: >-
   en diversas etapas del ciclo de desarrollo de aplicaciones.
 image: /assets/images/main.avif
 main_content: >
-  # Full‑Stack разработчик и исследователь ИБ
+  # Dandomi
 
   Привет! Я full‑stack инженер с опытом в web, desktop и game‑разработке, а также в практической информационной безопасности. Работаю с Node.js, Python, C#, PHP и другими технологиями.  
 
