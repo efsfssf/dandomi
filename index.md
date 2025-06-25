@@ -101,10 +101,8 @@ Full‑stack инженер с более чем 5‑летним опытом �
 
 ## Контакты
 
-- **Email:** you@example.com
-- **Telegram:** [@yourhandle](https://t.me/yourhandle)
-- **GitHub:** [github.com/yournick](https://github.com/yournick)
-- **LinkedIn:** [linkedin.com/in/yourlink](https://linkedin.com/in/yourlink)
+- **Telegram:** [@Russia_gos_duma](https://t.me/Russia_gos_duma)
+- **GitHub:** [github.com/efsfssf](https://github.com/efsfssf)
 
 ---
 
