@@ -25,9 +25,9 @@ contact_channels_section: true
 contact_channels:
   # email: "example@example.cl"
   github: "https://github.com/efsfssf"
-  # telegram: "https://t.me/"
+  telegram: "https://t.me/Russia_gos_duma"
   # stackoverflow: "https://stackoverflow.com"
-  # discord: "https://discord.com/"
+  discord: "https://discord.com/users/300631662482554880"
   # mastodon: "https://lile.cl/"
   # threads: "https://www.threads.net/@example"
   # linkedin: "https://www.linkedin.com/in/example/"
@@ -43,7 +43,7 @@ plugins:
 ##
 # Polyglot configuration
 ##
-languages: ["en"]
+languages: ["en", "ru"]
 default_lang: "en"
 exclude_from_localization: ["javascript", "images", "css", "public"]
 parallel_localization: true
