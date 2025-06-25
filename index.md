@@ -6,18 +6,17 @@ description: >-
   en diversas etapas del ciclo de desarrollo de aplicaciones.
 image: /assets/images/main.avif
 main_content: >
-  # Hello Friend. Hello World.
+  # Full‑Stack разработчик и исследователь ИБ
 
+  Привет! Я full‑stack инженер с опытом в web, desktop и game‑разработке, а также в практической информационной безопасности. Работаю с Node.js, Python, C#, PHP и другими технологиями.  
 
-  **Solum remis procul; poenam, corde?** Te quoque facti agros, querorque,
-  excutis
+  В 2024 вошёл в **топ‑7** хакеров программы VK по версии *Standoff365*, а также занял **3 место** в VK Bug Bounty Pass 2. Иногда нахожу критические уязвимости — например, как это было с сайтом Rozetked.
 
-  quoque vestigia substricta caelestique posuisset litore: suaque. **Et
-  limine**, et
+  Разрабатывал корпоративные и аналитические системы, создавал десктоп‑клиенты и IoT‑дашборды. Работаю как разработчик, архитектор, исследователь и DevOps-инженер.
 
-  nimium nec io diemque vocat spicea et horror licet leto fortuna suis cum.
-  **Lecto viae, quod Naxos tumulos quoque.** Et illo de nati iuvenci oris habet,
-  perdidit parantur! **#Rails #Ruby #Python #HTML #Css #Js #AWS**
+  Постоянно учусь, экспериментирую и не боюсь брать ответственность за результат.
+
+  **#NodeJS #Python #CSharp #Unity #Security #Django #React #WPF #DevOps**
 footer: true
 permalink: /
 ---
