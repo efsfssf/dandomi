@@ -1,59 +1,48 @@
 ---
 layout: post
-title: How to create an effective landing page for your campaign
-image: "https://picsum.photos/500/300"
-category: Ruby On Rails
+title: Мой опыт участия в Bug Bounty на Standoff 365 и в продуктах VK: посылки, фото и достижения
+image: "https://i.imgur.com/nm6g9XS.jpeg"
+category: hack
 author: Me
 ---
 
-Lorem markdownum causa finita rector cura uterque: Telamonque possit; attulerat
-totaque pugnat at vincar corpore ad exiguo canisve. Est tuo coniugis siquis
-bracchia exitio quibus! Et pater poeniceam numen tenebrisque quem incubuit hic
-damus tumere descendere.
+## Как всё началось
 
-Quam carpitur, porrigit gignis frendens saxea, [at](http://aere-myrrha.net/)
-poma ingentia vacet credentes. Namque avertere notatum placandam atque,
-_miserrima Astyanax_ dieque ut sinat Cereris: nec.
+В начале 2024 года я зарегистрировался на платформе Standoff 365 и сразу заинтересовался программами Bug Bounty, которые там ведут Mail.ru, «ВКонтакте», VK Play и другие продукты VK. Цель была проста — прокачать навыки в поиске уязвимостей, получить опыт взаимодействия с крупными проектами и, конечно же, вознаграждение за найденные баги.
 
-## Nec non stirpe cratera tibi non totidemque
+## Мои отчёты и результаты
 
-Satus incustoditam acti, sub metus talia iaculatoremque moresque: qualia putator
-altius spretis. Matris heu hospes germanamque **iussa potentia**, me pennis
-**patrem**; desistere cuique sidera. Denique quam perde, cum tristia adspergit
-baculisque et longa sub.
+В самый активный период с марта по май 2024 года я отправил более 20 отчётов о потенциальных уязвимостях:
+ - Принятые: 14
+ - Отклонённые: 5
+ - убликаты / информационные: 6
 
-Aer honores bisque quod quas alis ramis incidit olim sistitur, en. Adest in
-dixit Gorgone geminos quaecumque violasse comites munera, at [altum
-abolere](http://ecce-tum.net/magni-mota)! Subiti ver turbata doctae quo vidit et
-aequoris cuti. Cum dea hoc ante aura, ego niteant densi Picus in donec
-_sacravere_. Numina medium at suo viroque aeque miserabile fugio, bene?
+Общее количество: около 25 отчётов
 
-## Epops haec
+[https://i.imgur.com/uJ4rp61.jpeg](https://i.imgur.com/uJ4rp61.jpeg)
 
-Spatium popularis communis modo ignavis, cetera sceptrum formae erat, unda [tibi
-hos](http://cum.net/habemus.html), maiora decor. Ducunt amor quid in arbore quis
-ardere qui rupe dominum te a!
+Среди наиболее заметных находок были:
+ - **Краш звонка в VK Tutotia (Mail.ru Почта, Облако и Календарь)** — критический, вознаграждение в процессе согласования.
+ - **Уязвимость в загрузке видео от имени любого сообщества («ВКонтакте»)** — низкий, статус «дубликат».
+ - **Обход привязки к телефону и создание сервисных аккаунтов (VK Play)** — критический, дубликат.
+ - **Массовое получение промокодов в MiniApps («ВКонтакте»)** — высокий, вознаграждение 60 000 ₽.
+ - **Получение секретных фоточек со Сферума** — высокий, выплачено 150 000 ₽.
 
-## Corporeasque sunt
+## Bounty Pass #2: Olymp (22 июля — 21 октября 2024)
 
-Pharetras Ladon, mortis invidiae repugnat et credens confundas post _porrigit_,
-radiantia qui aera poscuntque _ipse_, sed. Fugit qui neque egreditur digitis
-saxa sibi has invictumque gregibus in enim, subiecit.
+В рамках второго раунда Bounty Pass “Olymp” я соревновался с другими багхантерами в накоплении очков и собрал достаточно баллов, чтобы:
 
-> Signis sacrataque acta tempore solus; oris patrem manu, dum aera magnumque sit
-> exemplis pariter, parvumque alternae. Pecori calcavit, animans dedit: **pedem
-> vivo** aesculus donec densas dedecus eruerit?
+ - Получить уникальный мерч (футболку, толстовку и стикеры с символикой VK).
+ - Стать участником розыгрышей «несгораемого бонуса» на год.
+ - Открыть дополнительные уровни вознаграждений за каждый следующий найденный баг.
 
-## Inquit occupat coercet negant circumdata ecce Aeaciden
+[https://i.imgur.com/PX3SHlW.jpeg](https://i.imgur.com/PX3SHlW.jpeg)
 
-Dente carpit pudici nescio inde quae, orbe vidit tellure caelo, dabat acer,
-haec. Quid frustraque illic [aspexisse](http://cereris-et.io/defluit) virgo
-exstinctum Lotis et causa crimine redeunt se aethera color nisi nec repurgat
-Ixionis discordia morsus.
+## Выводы и планы на будущее
 
-An oravit rogis amor, madescit [tacitorum tu](http://rigidis.io/que.html)
-turpius paludes. Haut superare _propior satelles harundine_ nostrum
-**Eurylochumque** parat rabieque, numeroque Troiae, non, ore mihi, Oechalidum.
-_Essem quem nunc_ omnia limite, tu narrat pennae et senes neque, in diebus
-pugnat. Aurae enim lenta agresti velut relictis, hos luctus Sminthea _cadunt
-intonsum_ volenti spatio, speciosam secuta si. Ingenii nullo orientis, secuta!
+Участие в Bug Bounty на Standoff 365 и платформах VK стало отличным стартом для развития карьеры в области информационной безопасности. Мои ключевые уроки:
+- Терпение и системность важнее спешки — тщательно проверяйте каждый сценарий использования.
+- Документируйте на каждом этапе: скриншоты, логи, описание воспроизведения (это может пригодиться для воспроизведения другой узявимости).
+
+Порой уязвимости бывают довольно забавными:
+https://vk.com/video-1_456239787
