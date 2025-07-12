@@ -14,6 +14,8 @@ collections:
   projects:
     output: true
 
+
+url: "https://dandomi.netlify.app"
 ##
 # Contact Channels configuration
 # Uncomment for enable. Available contact channels are email, github, telegram, stackoverflow, discord, mastodon.
