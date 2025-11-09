@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Реверс-инжиниринг и эксплуатация уязвимостей в игре Boom Slingers (Android)
-image: "https://i.imgur.com/nm6g9XS.jpeg"
+image: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2075050/header.jpg"
 category: hack
 author: Me
 ---
