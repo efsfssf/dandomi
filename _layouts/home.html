@@ -72,6 +72,7 @@ layout: default
       site.data['en'].strings.home.projects_title}}
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-16 py-8 md:py-16" data-motion="stagger-cards">
+      {% assign sorted_projects = site.projects | sort: 'date' | reverse %}
       {% for project in site.projects limit:3 %} 
         {% include project_card.html project=project %} 
       {% endfor %}
