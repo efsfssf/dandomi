@@ -4,17 +4,17 @@ layout: default
 
 <link rel="stylesheet" href="{{ '/assets/css/monokai.css' | relative_url }}">
 <div class="container mx-auto">
-  <div id="post" class="prose max-w-[75ch] prose-neutral mx-auto pb-10 pt-20 lg:pt-[90px] lg:pb-20">
-    <div class="pb-4">
+  <div id="post" class="prose md:prose-lg dark:prose-invert prose-img:rounded-lg max-w-[75ch] mx-auto pb-10 pt-20 lg:pt-[90px] lg:pb-20">
+    <div class="pb-4" data-motion="fadeInRight">
       <a href="{{site.url}}/category/{{page.categories[0] | replace: ' ', '-' | downcase}}"
-        class="no-underline font-mulish text-sm hover:text-sky-400 text-gray-500">
+        class="no-underline font-mulish text-sm hover:underline text-neutral-700 dark:text-neutral-300">
         {{ page.categories[0] | upcase }}
       </a>
     </div>
 
-    <h1 class="text-left text-2xl font-bold md:text-5xl text-black">{{page.title}}</h1>
+    <h1 class="text-left text-2xl font-bold md:text-5xl text-neutral-900 dark:text-neutral-100" data-motion="fadeInRight">{{page.title}}</h1>
 
-    <div class="flex flex-col md:flex-row text-sm font-mulish justify-between items-center">
+    <div data-motion="fadeInLeft" data-motion-delay="0.4" data-motion-duration="0.4" class="flex flex-col md:flex-row text-sm font-mulish justify-between items-center">
       <div class="flex">
         <p>{{ page.author }}</p>
         <p class="px-2">•</p>
@@ -30,10 +30,10 @@ layout: default
     </div>
 
     {% if page.image %}
-    <img class="w-full" src="{{page.image | relative_url}}" alt="{{page.title}}">
+      <img data-motion="fadeInUp" data-motion-onscroll="false" data-motion-delay="0.8" data-motion-duration="0.2" class="w-full" src="{{page.image | relative_url}}" alt="{{page.title}}">
     {% endif %}
 
-    <div class="my-6">
+    <div data-motion="fadeInUp" data-motion-onscroll="false" data-motion-delay="1" data-motion-duration="0.2" class="my-6">
       {{content}}
     </div>
 

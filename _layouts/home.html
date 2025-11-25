@@ -4,17 +4,19 @@ layout: default
 
 <section
   id="main"
-  class="flex flex-col md:flex-row items-center justify-center py-16 md:h-screen border-b-2"
+  class="flex flex-col md:flex-row items-center justify-center py-16 md:h-screen border-b-2 dark:border-0"
 >
-  <div class="md:mx-2">
+  <div class="md:mx-2" data-motion="fadeInLeft">
     <img
       class="object-cover w-full h-full sm:w-80 sm:h-80 sm:rounded-full"
       src="{{ page.image | relative_url | default: 'https://ik.imagekit.io/ikmedia/avif_samples/photo3_avif_6O32dW2NT.png' }}"
       alt="{{ page.description }}"
     />
   </div>
-  <div class="fadeIn mx-4 w-4/5 md:w-2/5 text-center md:text-left mt-6 md:mt-0">
-    <div class="prose prose-h1:mb-1">{{ page.main_content | markdownify }}</div>
+  <div class="fadeIn mx-4 w-4/5 md:w-2/5 text-center md:text-left mt-6 md:mt-0" data-motion="fadeInRight">
+    <div class="prose md:prose-lg prose-h1:text-4xl prose-h2:text-3xl prose-h1:mb-1 dark:prose-invert">
+      {{ page.main_content | markdownify }}
+    </div>
     {% if site.contact_channels_section %}
     <p class="mt-4">
       {{ site.data[site.active_lang].strings.home.contact_me | default:
@@ -28,23 +30,24 @@ layout: default
 {% if site.posts.size > 0 %}
 <section
   id="blog"
-  class="container mx-auto flex flex-col items-center justify-center min-h-screen"
+  class="md:inout container mx-auto flex flex-col items-center justify-center min-h-screen"
 >
   <div class="py-16 w-full">
-    <h2 class="text-3xl font-bold text-center md:text-left">
+    <h2 class="text-3xl font-bold text-center md:text-left" data-motion="fadeInUp">
       {{ site.data[site.active_lang].strings.home.blog_title | default:
       site.data['en'].strings.home.blog_title}}
     </h2>
     <div
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-12 gap-y-16 py-8 md:py-16"
+      data-motion="stagger-cards"
     >
       {% for post in site.posts limit:3 %} {% include post_card.html post=post%}
       {% endfor %}
     </div>
 
-    {% assign blog_page = site.pages | where: 'layout', 'blog' | first %} {% if
-    blog_page %}
-    <div class="pt-4 text-center">
+    {% assign blog_page = site.pages | where: 'layout', 'blog' | first %} 
+    {% if blog_page %}
+    <div class="pt-4 text-end" data-motion="fadeInUp">
       <a
         class="font-mulish text-lg hover:text-sky-400 hover:underline font-bold"
         href="{{ blog_page.url | relative_url }}"
@@ -56,22 +59,24 @@ layout: default
     {% endif %}
   </div>
 </section>
-{% endif %} {% if site.projects.size > 0 %}
+{% endif %} 
+
+{% if site.projects.size > 0 %}
 <section
   id="projects"
-  class="container mx-auto flex flex-col items-center justify-center min-h-screen"
+  class="md:inout container mx-auto flex flex-col items-center justify-center min-h-screen"
 >
   <div class="py-16 w-full">
-    <h2 class="text-3xl font-bold text-center md:text-left">
+    <h2 class="text-3xl font-bold text-center md:text-left" data-motion="fadeInUp">
       {{ site.data[site.active_lang].strings.home.projects_title | default:
       site.data['en'].strings.home.projects_title}}
     </h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16 py-8 md:py-16">
-      {% assign sorted_projects = site.projects | sort: 'date' | reverse %}
-      {% for project in sorted_projects limit:2 %} {% include project_card.html
-      project=project%} {% endfor %}
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-16 py-8 md:py-16" data-motion="stagger-cards">
+      {% for project in site.projects limit:3 %} 
+        {% include project_card.html project=project %} 
+      {% endfor %}
     </div>
-    <div class="pt-4 text-center">
+    <div class="pt-4 text-end" data-motion="fadeInUp">
       <a
         class="font-mulish text-lg hover:text-sky-400 hover:underline font-bold"
         href="{{'/projects' | relative_url }}"
@@ -82,14 +87,17 @@ layout: default
     </div>
   </div>
 </section>
-{% endif %} {% assign trimmed_content = content | strip | replace: "\n", "" |
-replace: "\r", "" | replace: "\t", "" %} {% if trimmed_content != "" %}
-<section
-  id="content"
-  class="container mx-auto flex flex-col items-center justify-center min-h-screen"
->
-  <article class="prose mx-auto py-16">{{content}}</article>
-</section>
+{% endif %} 
+
+{% assign trimmed_content = content | strip | replace: "\n", "" | replace: "\r", "" | replace: "\t", "" %} 
+
+{% if trimmed_content != "" %}
+  <section
+    id="content"
+    class="inout container mx-auto flex flex-col items-center justify-center min-h-screen"
+  >
+    <article class="prose prose-lg dark:prose-invert prose-h1:text-5xl prose-h2:text-3xl mx-auto py-16" data-motion="fadeInUp">{{content}}</article>
+  </section>
 {% endif %}
 
 <div
@@ -122,6 +130,4 @@ replace: "\r", "" | replace: "\t", "" %} {% if trimmed_content != "" %}
   {% endif %}
 </div>
 
-<script src="{{ '/assets/js/scrolldown-effect.js'| relative_url }}"></script>
 <script src="{{ '/assets/js/dot-navigation.js'| relative_url }}"></script>
-<script src="{{ '/assets/js/scroll-navigation.js'| relative_url }}"></script>

@@ -1,7 +1,7 @@
 {% capture currentYear %}{{ 'now' | date: '%Y' }}{% endcapture %}
 
 <footer class="w-full bottom-0">
-  <hr class="my-8 border-zinc-200" />
+  <hr class="my-8 border-zinc-200 dark:border-neutral-700" />
   <div class="container mx-auto">
     <div class="flex flex-wrap text-left">
       <div class="w-full md:w-6/12 md:px-4">
@@ -19,14 +19,14 @@
       <div class="w-full md:w-6/12 md:text-right py-4 md:py-0">
         <div class="flex flex-wrap items-top mb-6">
           <div class="w-full lg:w-4/12 md:px-4 ml-auto">
-            <span class="text-lg block text-gray-800 mb-2">
+            <span class="text-lg block text-gray-800 dark:text-neutral-200 mb-2">
               {{ site.data[site.active_lang].strings.footer.pages | default:
               site.data['en'].strings.footer.pages}}
             </span>
             <ul>
               {% for page in site.pages %} {% if page.footer %}
               <li>
-                <a class="font-mulish text-slate-600 hover:text-sky-400 dark:text-slate-300 dark:hover:text-slate-200"
+                <a class="font-mulish text-slate-600 hover:text-sky-400 dark:text-neutral-300 dark:hover:text-slate-200"
                   href="{{ page.url | relative_url }}">{{ page.title | default: page.name }}</a>
               </li>
               {% endif%} {% endfor %}
@@ -52,9 +52,14 @@
         {% endif %}
         <div class="text-sm text-blueGray-500 font-semibold py-1">
           © <span id="get-current-year">{{currentYear}}</span>
-          <a href="https://www.creative-tim.com/product/notus-js" class="text-blueGray-500 hover:text-gray-800"
+          <a href="/" class="text-blueGray-500 hover:text-gray-800"
             target="_blank" aria-label="Creative C">{{site.title}}.</a>
           All rights reserved.
+          <p class="text-xs pt-4">
+            Built with ❤️ using the
+            <a class="hover:text-sky-400" href="https://github.com/a-chacon/awesome-jekyll-theme">Awesome Jekyll
+              Theme</a>.
+          </p>
         </div>
       </div>
     </div>

@@ -1,0 +1,15 @@
+home:
+  contact_me: "Вы можете связаться со мной по любому из этих каналов:"
+  blog_title: "Блог: Последние Статьи"
+  see_more_posts: "Посмотреть Еще Статьи ->"
+  projects_title: "Последние Проекты"
+  see_more_projects: "Посмотреть Другие Проекты ->"
+footer:
+  title: "Давайте будем на связи!"
+  description: "Найдите меня на любой из этих платформ:"
+  pages: Страницы
+blog:
+  read_more: "Read More ->"
+  more_articles: "Еще Статьи"
+post:
+  share: Тебе понравилось? Поделитесь этим!
