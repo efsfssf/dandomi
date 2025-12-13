@@ -26,6 +26,89 @@ author: Me
 
 ---
 
+# Активация WebView
+
+Для анализа сетевых запросов и внутренней логики приложения стало необходимо активировать DevTools в встроенном WebView. Приложение было написано на Go и использовало фреймворк Wails, который, в свою очередь, интегрирует компонент WebView2.
+
+Через IDA Pro была изучена структура приложения. Как стало извствно по косвенным признакам - это Go приложение использующее библиотеку Wails (WebView2). WebView2 работает через движок EmbeddedBrowserWebView.dll, который загружается в процесс при запуске.
+
+Для активации WebView приложение было запущено в WinBbg в режиме отладки. 
+
+### Поиск момента инициализации WebView
+
+Для того чтобы перехватить и активировать DevTools, приложение запускалось в WinDbg.
+Первым шагом был поставлен брейкпоинт на загрузку библиотеки:
+```
+sxe ld:EmbeddedBrowserWebView.dll
+g
+```
+После загрузки DLL в WinDbg стали доступны PDB-символы, что позволяет навигацию по методам C++-классов движка WebView2.
+
+### Перехват инициализации Core-объекта WebView
+
+Из символов библиотеки стало понятно, что реальная логика WebView находится внутри класса:
+
+```
+embedded_browser_webview::EmbeddedBrowserWebViewCore
+```
+
+Метод OnInitializeWebViewCompleted вызывается в тот момент, когда WebView полностью сформирован — завершена инициализация, IPC-каналы активны и объект готов к использованию.
+
+Был установлен брекпоинт на EmbeddedBrowserWebViewCore::OnInitializeWebViewCompleted. 
+
+После срабатывания брейка проверяем RCX — указатель на Core-объект:
+```
+r rcx
+dq @rcx L10
+```
+
+Если объект содержит реальные данные (например, vtable), значит перед нами полноценный экземпляр WebViewCore, а не временный wrapper.
+
+Пример ответа:
+
+```
+00005b90`00130150  00007ffe`1cc2e540 00007ffe`1cc2e920
+00005b90`00130160  00000000`00000000 00005b90`00130170
+00005b90`00130170  00000000`00000000 00000000`00000000
+00005b90`00130180  00000000`00000000 00005b90`00130190
+00005b90`00130190  00000000`00000000 00000000`00000000
+00005b90`001301a0  00000000`00000000 00000000`00000000
+00005b90`001301b0  00000000`00000000 00000000`00000000
+00005b90`001301c0  00007ffe`1cc2e958 00007ffe`1cc2e968
+```
+
+### Поиск метода DevTools
+
+При помощи команды `x EmbeddedBrowserWebView!*OpenDevToolsWindow*` мы получаем вывод методов данной библиотеки:
+
+```
+0007ffe`1cb17f50 EmbeddedBrowserWebView!embedded_browser::mojom::EmbeddedBrowser::OpenDevToolsWindow_Sym::IPCStableHash (void)
+00007ffe`1cb3a020 EmbeddedBrowserWebView!embedded_browser::mojom::internal::EmbeddedBrowser_OpenDevToolsWindow_Params_Data::Validate (public: static bool __cdecl embedded_browser::mojom::internal::EmbeddedBrowser_OpenDevToolsWindow_Params_Data::Validate(void const *,class mojo::internal::ValidationContext *))
+00007ffe`1c858100 EmbeddedBrowserWebView!embedded_browser_webview_current::EmbeddedBrowserWebView::OpenDevToolsWindow (public: virtual long __cdecl embedded_browser_webview_current::EmbeddedBrowserWebView::OpenDevToolsWindow(void))
+00007ffe`1cb1b580 EmbeddedBrowserWebView!embedded_browser::mojom::EmbeddedBrowserProxy::OpenDevToolsWindow (public: virtual void __cdecl embedded_browser::mojom::EmbeddedBrowserProxy::OpenDevToolsWindow(void))
+00007ffe`1c8c0436 EmbeddedBrowserWebView!embedded_browser_webview::EmbeddedBrowserWebViewCore::OpenDevToolsWindow (public: long __cdecl embedded_browser_webview::EmbeddedBrowserWebViewCore::OpenDevToolsWindow(void))
+00007ffe`1cb3a012 EmbeddedBrowserWebView!embedded_browser::mojom::internal::EmbeddedBrowser_OpenDevToolsWindow_Params_Data::EmbeddedBrowser_OpenDevToolsWindow_Params_Data (private: __cdecl embedded_browser::mojom::internal::EmbeddedBrowser_OpenDevToolsWindow_Params_Data::EmbeddedBrowser_OpenDevToolsWindow_Params_Data(void))
+00007ffe`1c909100 EmbeddedBrowserWebView!embedded_browser_webview_deprecated613::EmbeddedBrowserWebView::OpenDevToolsWindow (public: virtual long __cdecl embedded_browser_webview_deprecated613::EmbeddedBrowserWebView::OpenDevToolsWindow(void))
+00007ffe`1c8e4d80 EmbeddedBrowserWebView!embedded_browser_webview_deprecated721::EmbeddedBrowserWebView::OpenDevToolsWindow (public: virtual long __cdecl embedded_browser_webview_deprecated721::EmbeddedBrowserWebView::OpenDevToolsWindow(void))
+```
+WinDbg показывает несколько реализаций, включая deprecated-версии и proxy-методы. Нас интересует именно та, что находится в Core, а не во wrapper’ах:
+
+Отсюда мы видим `base address: ` 00007ffe\`1c8c0436 метода `EmbeddedBrowserWebView!embedded_browser_webview::EmbeddedBrowserWebViewCore::OpenDevToolsWindow`. Данный момент и отвечает за запуск окна DevTools.
+
+### Вызов DevTools вручную
+
+Теперь, когда у нас есть:
+
+- корректный this (RCX указатель на WebViewCore)
+- адрес метода DevTools (OpenDevToolsWindow)
+
+Мы можем напрямую вызвать DevTools и продолжить выполнение командой `g`
+
+```
+r rip = 00007ffa`9a150436
+g
+```
+
 # Изучение авторизации
 
 ## Первое наблюдение: авторизация через браузер
