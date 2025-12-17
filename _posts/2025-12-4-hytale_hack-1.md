@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Исследование сетевого протокола Hytale Launcher
+title: Исследование сетевого протокола Hytale Launcher и найденная уязвимость
 image: "https://hytale.com/static/images/logo.png"
 category: hack
 author: Me
@@ -25,6 +25,10 @@ author: Me
 - все изменения касались только перенаправления HTTP-адресов на `127.1.0.1`.
 
 ---
+
+> UPD 17.12.2025:
+> Полученный опыт позволил обнаружить уязвимость на продакшн-сервере, связанную с доверием к User-Agent
+> Соответствующее письмо было отправлено на адрес security@hytale.com в соответствии с политикой Bug Bounty: https://hytale.com/security
 
 # Активация WebView
 
